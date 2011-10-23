@@ -3,7 +3,7 @@
 
 <div id="rfp-status">
   <div id="accept">
-    <h2><%= t(:accepted) %></h2>
+    <h2 align="center"><%= t(:accepted) %></h2>
     <% for role in @request.section_roles.accepted %>
       <div class="user-accept">
         <div class="role-score">
@@ -18,7 +18,7 @@
     <% end -%>
   </div>
   <div id="reject">
-    <h2><%= t(:rejected)%></h2>
+    <h2 align="center"><%= t(:rejected)%></h2>
     <% for role in @request.section_roles.rejected %>
       <div class="user-reject">
         <div class="role-score">

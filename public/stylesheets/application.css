@@ -34,9 +34,10 @@ a {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   width: 75%;
+  height: auto;
   margin: 0 auto;
   background-color: #ACDEDB;
-  padding: 20px 40px;
+  padding: 30px 40px;
   border: solid 1px black;
   margin-top: 20px;
 }
@@ -45,7 +46,7 @@ a {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   padding: 5px 8px;
-  margin: 10px 0;
+  margin: 30px 0;
 }
 
 #flash_notice {
@@ -203,6 +204,11 @@ div#user-info{
 
 div#decision {
 	clear: both;
+}
+
+div#user-section-roles {
+    --float: right;
+    --height: auto;
 }
 
 
