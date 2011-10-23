@@ -85,6 +85,16 @@
     </ul>
     <%= link_to t(:add_section), new_request_request_section_path(@request) %>
   </div>
+
+  <div id="similar-rfps">
+    <strong><%= t(:similar_requests) %></strong>
+    <ul>
+      <% for similar in @request.similar_requests %>
+        <li></em><%= link_to similar.name, request_path(similar) %></li>
+      <% end -%>
+    </ul>
+  </div>
+
 </div>
 
 <p>

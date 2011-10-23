@@ -1,5 +1,5 @@
 class Request < ActiveRecord::Base
-  attr_accessible :name, :start_date, :decision_date, :company, :comment, :filename, :response_time, :status, :average, :file_upload
+  attr_accessible :name, :start_date, :decision_date, :company, :comment, :filename, :response_time, :status, :average, :file_upload, :similar_request_ids
   
   attr_accessor :file_upload
 
@@ -8,6 +8,9 @@ class Request < ActiveRecord::Base
   has_many :request_sections, :dependent => :destroy
   has_many :sections, :through => :request_sections
   has_many :section_roles, :through => :request_sections
+  has_many :similarities, :foreign_key => 'request_id',
+  :class_name => 'Similarity'
+  has_many :similar_requests, :through => :similarities
   
   before_save :save_file
   

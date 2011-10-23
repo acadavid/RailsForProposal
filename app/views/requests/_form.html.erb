@@ -20,5 +20,12 @@
     <%= f.label t(:file) %><br />
     <%= f.file_field :file_upload %>
   </p>
+  <p>
+    <%= f.label t(:similar_requests) %><br />
+    <%= select_tag "request[similar_request_ids][]",
+    options_from_collection_for_select(Request.all, "id", "name", @request.similar_requests.map(&:id)),
+    :multiple => true %>
+  </p>
+
   <p><%= f.submit t(:register) %></p>
 <% end %>

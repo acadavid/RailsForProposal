@@ -39,6 +39,7 @@ es-CO:
   add_responsible: "Agregar responsable"
   add_section: "Agregar sección"
   value: "Peso"
+  similar_requests: "RFPs Similares"
   
   edit: "Editar"
   remove: "Eliminar"
