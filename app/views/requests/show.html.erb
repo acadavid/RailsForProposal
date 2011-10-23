@@ -58,14 +58,21 @@
 
 <div id="general-info">
   <div id="rfp-info">
-    <h2><%= @request.name %></h2>
+    <h2><%= @request.name %> -
+    <%= number_to_percentage(@request.completion_percentage,
+    :precision => 0) %></h2>
     <ul>
-      <li><strong><%= t(:status) %>: </strong><%= t(@request.status) %></li>
+      <li><strong><%= t(:status) %>: </strong><%= t(@request.status)
+      %></li>
       <li><strong><%= t(:start_date) %>: </strong><%= @request.start_date %></li>
       <li><strong><%= t(:decision_date) %>: </strong><%= @request.decision_date %></li>
-	  <li><strong><%= t(:time_remaining) %>: </strong><%= (@request.decision_date) - (Date.current) %> días</li>
+	  <li><strong><%= t(:time_remaining) %>: </strong><%= ((@request.decision_date) - (Date.current)).to_i %> días</li>
       <li><strong><%= t(:score) %>: </strong><%= "%0.2f" % @request.average %></li>
     </ul>    
+  </div>
+  <div id="characteristics">
+    <strong><%= t(:characteristics) %></strong><br /><br />
+    <%= @request.characteristics or "Sin información" %>
   </div>
   <div id="responsibles">
     <strong><%= t(:responsibles) %></strong>

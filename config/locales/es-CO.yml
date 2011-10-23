@@ -40,6 +40,8 @@ es-CO:
   add_section: "Agregar sección"
   value: "Peso"
   similar_requests: "RFPs Similares"
+  characteristics: "Características del producto o servicio"
+  completion_percentage: "Porcentaje de progreso"
   
   edit: "Editar"
   remove: "Eliminar"

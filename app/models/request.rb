@@ -1,5 +1,5 @@
 class Request < ActiveRecord::Base
-  attr_accessible :name, :start_date, :decision_date, :company, :comment, :filename, :response_time, :status, :average, :file_upload, :similar_request_ids
+  attr_accessible :name, :start_date, :decision_date, :company, :comment, :filename, :response_time, :status, :average, :file_upload, :similar_request_ids, :characteristics
   
   attr_accessor :file_upload
 
@@ -40,6 +40,13 @@ class Request < ActiveRecord::Base
       sum += section.average if section.average > 0.0 
     end    
     self.average = sum / self.request_sections.count
+    save
+  end
+
+  def update_progress
+    value = 0
+    finished = self.request_sections.select(&:finished).count
+    self.completion_percentage = (finished.to_f/self.request_sections.count.to_f)*100.0 unless finished == 0
     save
   end
   

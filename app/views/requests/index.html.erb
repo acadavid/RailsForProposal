@@ -3,8 +3,8 @@
 <table>
   <tr>
     <th><%= t(:name) %></th>
-    <th><%= t(:start_date) %></th>
-    <th><%= t(:decision_date) %></th>
+    <th><%= t(:completion_percentage) %></th>
+    <th><%= t(:time_remaining) %></th>
     <th><%= t(:company) %></th>
     <th><%= t(:status) %></th>
     <th><%= t(:score) %></th>
@@ -13,8 +13,9 @@
   <% for request in @requests %>
     <tr>
       <td><%= request.name %></td>
-      <td><%= request.start_date %></td>
-      <td><%= request.decision_date %></td>
+      <td><%= number_to_percentage(request.completion_percentage,
+      :precision => 0) %></td>
+      <td><%= ((request.decision_date) - (Date.current)).to_i %> días</td>
       <td><%= request.company %></td>
       <td><%= t(request.status) %></td>
       <td><%= "%0.2f" % request.average %></td>

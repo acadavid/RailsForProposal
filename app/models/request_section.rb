@@ -14,6 +14,7 @@ class RequestSection < ActiveRecord::Base
     self.average = sum / self.section_roles.not_pending.count
     self.save
     self.request.update_average
+    self.request.update_progress
   end
   
   def finished
