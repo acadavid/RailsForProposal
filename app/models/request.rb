@@ -11,6 +11,8 @@ class Request < ActiveRecord::Base
   has_many :similarities, :foreign_key => 'request_id',
   :class_name => 'Similarity'
   has_many :similar_requests, :through => :similarities
+
+  scope :archived, where(:status => "archived")
   
   before_save :save_file
   
@@ -53,5 +55,9 @@ class Request < ActiveRecord::Base
   def finished
     self.request_sections.inject(true){ |res, sec| res &&= sec.finished }
   end
-  
+
+  def archive!
+    self.status = "archive"
+    save
+  end
 end

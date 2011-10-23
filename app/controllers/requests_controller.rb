@@ -42,4 +42,5 @@ class RequestsController < ApplicationController
     @request.destroy
     redirect_to requests_url, :notice => "RFP eliminado exitosamente."
   end
+
 end

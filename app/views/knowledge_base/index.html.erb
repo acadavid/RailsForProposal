@@ -3,28 +3,20 @@
 <table>
   <tr>
     <th><%= t(:name) %></th>
-    <th><%= t(:completion_percentage) %></th>
-    <th><%= t(:time_remaining) %></th>
     <th><%= t(:company) %></th>
-    <th><%= t(:status) %></th>
     <th><%= t(:score) %></th>
+    <th><%= t(:feedback) %></th>
     <th><%= t(:comment) %></th>
   </tr>
   <% for request in @requests %>
     <tr>
       <td><%= request.name %></td>
-      <td><%= number_to_percentage(request.completion_percentage,
-      :precision => 0) %></td>
-      <td><%= ((request.decision_date) - (Date.current)).to_i %> días</td>
       <td><%= request.company %></td>
-      <td><%= t(request.status) %></td>
       <td><%= "%0.2f" % request.average %></td>
-      <td><%= request.comment %></td>
+      <td><%= request.feedback %></td>
       <td><%= link_to "Administrar", request %></td>
       <td><%= link_to "Ver", "/upload/rfp/#{request.filename}" %></td>
-      <td><%= link_to "Editar", edit_request_path(request) %></td>
-      <td><%= link_to "Eliminar", request, :confirm => '¿Está
-      seguro?', :method => :delete %></td>
+      <td><%= link_to "Eliminar", request, :confirm => '¿Está seguro?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>
