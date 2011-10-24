@@ -25,6 +25,7 @@
       <td><%= link_to "Editar", edit_request_path(request) %></td>
       <td><%= link_to "Eliminar", request, :confirm => '¿Está
       seguro?', :method => :delete %></td>
+      <td><%= link_to "Archivar", request_archive_path(request) %></td>
     </tr>
   <% end %>
 </table>

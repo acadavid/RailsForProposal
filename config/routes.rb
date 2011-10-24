@@ -2,6 +2,9 @@ RailsForProposal::Application.routes.draw do
   
   match '/login' => 'user_sessions#new'
   match '/logout' => 'user_sessions#destroy'
+
+  # Routes that need priority over some resources to avoid conflicts.
+  match 'requests/:id/archive_project' => 'requests#archive_project', :as => "project_archive"
   
   resources :user_sessions
 
@@ -18,8 +21,15 @@ RailsForProposal::Application.routes.draw do
     resources :request_sections do
       resources :section_items
     end
+    member do
+      get 'archive'
+    end
   end
 
+
+
+  resources :knowledge_base
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

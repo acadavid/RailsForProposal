@@ -1,4 +1,4 @@
-<% title "RFP's" %>
+<% title "Base de conocimiento" %>
 
 <table>
   <tr>
@@ -6,7 +6,6 @@
     <th><%= t(:company) %></th>
     <th><%= t(:score) %></th>
     <th><%= t(:feedback) %></th>
-    <th><%= t(:comment) %></th>
   </tr>
   <% for request in @requests %>
     <tr>
@@ -14,12 +13,11 @@
       <td><%= request.company %></td>
       <td><%= "%0.2f" % request.average %></td>
       <td><%= request.feedback %></td>
-      <td><%= link_to "Administrar", request %></td>
-      <td><%= link_to "Ver", "/upload/rfp/#{request.filename}" %></td>
-      <td><%= link_to "Eliminar", request, :confirm => '¿Está seguro?', :method => :delete %></td>
+      <td><%= link_to "Ver detalles RFP", request %></td>
+      <td><%= link_to "Descargar Archivo", "/upload/rfp/#{request.filename}" %></td>
+      <td><%= link_to "Eliminar", request, :confirm => '¿Está
+      seguro?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to "Registrar RFP", new_request_path %></p>
-<p><%= link_to "Registrar usuario", new_user_path %></p>

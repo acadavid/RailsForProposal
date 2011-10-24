@@ -14,7 +14,7 @@
         <% if current_user %>        
           <%= link_to "Principal", user_path(current_user) %> |
           <%= link_to t(:rfp), requests_path %> | 
-          <%= link_to "Base de conocimiento", user_path(current_user) %> |
+          <%= link_to "Base de conocimiento", knowledge_base_index_path %> |
           <% if current_user.admin %>
             <%= link_to t(:users), users_path %> |
           <% end -%>

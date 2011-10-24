@@ -1,5 +1,5 @@
 class Request < ActiveRecord::Base
-  attr_accessible :name, :start_date, :decision_date, :company, :comment, :filename, :response_time, :status, :average, :file_upload, :similar_request_ids, :characteristics
+  attr_accessible :name, :start_date, :decision_date, :company, :comment, :filename, :response_time, :status, :average, :file_upload, :similar_request_ids, :characteristics, :feedback
   
   attr_accessor :file_upload
 
@@ -57,7 +57,7 @@ class Request < ActiveRecord::Base
   end
 
   def archive!
-    self.status = "archive"
+    self.status = "archived"
     save
   end
 end

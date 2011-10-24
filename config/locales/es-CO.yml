@@ -42,10 +42,12 @@ es-CO:
   similar_requests: "RFPs Similares"
   characteristics: "Características del producto o servicio"
   completion_percentage: "Porcentaje de progreso"
+  feedback: "Retroalimentación"
   
   edit: "Editar"
   remove: "Eliminar"
   back: "Volver"
+  save: "Guardar"
   
   number:
     percentage:
