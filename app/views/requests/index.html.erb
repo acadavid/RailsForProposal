@@ -1,34 +1,51 @@
 <% title "RFP's" %>
+<%= javascript_include_tag "list" %>
+<div id="rfps">
+  <table>
+    <thead>
+      <tr>
+	<th class="sort" rel="name"><%= t(:name) %></th>
+	<th class="sort" rel="percentage"><%= t(:completion_percentage) %></th>
+	<th class="sort" rel="remaining"><%= t(:time_remaining) %></th>
+	<th class="sort" rel="company"><%= t(:company) %></th>
+	<th class="sort" rel="status"><%= t(:status) %></th>
+	<th class="sort" rel="score"><%= t(:score) %></th>
+	<th class="sort" rel="comment"><%= t(:comment) %></th>
+	<th colspan="2">
+	  <input class="search" type="text" placeholder="Búsqueda de RFP"/>
+	</th>
+      </tr>
+    </thead>
+    <tbody class="list">
+    <% for request in @requests %>
+      <tr>
+	<td class="name"><%= request.name %></td>
+	<td class="percentage"><%= number_to_percentage(request.completion_percentage, :precision => 0) %></td>
+	<td class="remaining"><%= ((request.decision_date) - (Date.current)).to_i %> días</td>
+	<td class="company"><%= request.company %></td>
+	<td class="status"><%= t(request.status) %></td>
+	<td class="score"><%= "%0.2f" % request.average %></td>
+	<td class="comment"><%= request.comment %></td>
+	<td><%= link_to "Administrar", request %></td>
+	<td><%= link_to "Ver", "/upload/rfp/#{request.filename}" %></td>
+	<td><%= link_to "Editar", edit_request_path(request) %></td>
+	<td><%= link_to "Eliminar", request, :confirm => '¿Está
+	  seguro?', :method => :delete %></td>
+	<td><%= link_to "Archivar", request_archive_path(request) %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
 
-<table>
-  <tr>
-    <th><%= t(:name) %></th>
-    <th><%= t(:completion_percentage) %></th>
-    <th><%= t(:time_remaining) %></th>
-    <th><%= t(:company) %></th>
-    <th><%= t(:status) %></th>
-    <th><%= t(:score) %></th>
-    <th><%= t(:comment) %></th>
-  </tr>
-  <% for request in @requests %>
-    <tr>
-      <td><%= request.name %></td>
-      <td><%= number_to_percentage(request.completion_percentage,
-      :precision => 0) %></td>
-      <td><%= ((request.decision_date) - (Date.current)).to_i %> días</td>
-      <td><%= request.company %></td>
-      <td><%= t(request.status) %></td>
-      <td><%= "%0.2f" % request.average %></td>
-      <td><%= request.comment %></td>
-      <td><%= link_to "Administrar", request %></td>
-      <td><%= link_to "Ver", "/upload/rfp/#{request.filename}" %></td>
-      <td><%= link_to "Editar", edit_request_path(request) %></td>
-      <td><%= link_to "Eliminar", request, :confirm => '¿Está
-      seguro?', :method => :delete %></td>
-      <td><%= link_to "Archivar", request_archive_path(request) %></td>
-    </tr>
-  <% end %>
-</table>
+<script type="text/javascript">
+  
+  var options = { 
+  valueNames: ['name', 'percentage', 'remaining', 'company', 'status', 'score', 'comment']
+  };
+  
+  var rfpList = new List("rfps", options);
+</script>
 
 <p><%= link_to "Registrar RFP", new_request_path %></p>
 <p><%= link_to "Registrar usuario", new_user_path %></p>
