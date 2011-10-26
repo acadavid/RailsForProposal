@@ -26,9 +26,14 @@ RailsForProposal::Application.routes.draw do
     end
   end
 
-
-
   resources :knowledge_base
+  
+  resources :reports do
+    collection do
+      get :sections_rejection
+      get :users_performance
+    end
+  end
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

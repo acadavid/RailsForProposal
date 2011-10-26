@@ -1,0 +1,27 @@
+<% title "Reporte de rechazo y aprobación de secciones" %>
+
+<ul>
+  <% for k, v in @all_sections %>
+  <li><strong><%= k %></strong>: <%= v.count %>
+    <ul>
+      <% unless v.count == 0 %>
+        <li>En proceso:
+        <%= number_to_percentage(((v.count-(@accepted[k].count+@rejected[k].count))/v.count)*100,
+        :precision => 0 )%></li>
+        <li>Aceptados:
+        <%= number_to_percentage((@accepted[k].count/v.count)*100,
+        :precision => 0 )%></li>
+        <% for s in @accepted[k] %>
+           - <%= s.comment %><br />
+        <% end %>
+        <li>Rechazados:
+      <%= number_to_percentage((@rejected[k].count/v.count)*100,
+        :precision => 0 )%></li>
+        <% for s in @rejected[k] %>
+           - <%= s.comment %><br />
+        <% end %>
+      <% end %>
+    </ul>
+  </li><br />
+  <% end %>
+</ul>
