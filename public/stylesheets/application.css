@@ -1,10 +1,12 @@
 body {
-  background-color: #039487;
-  font: 11px "Trebuchet MS", Verdana, Arial, Helvetica,
-	sans-serif;
-  color: #6D929B;
-  letter-spacing: 2px; 
-  font-size: 14px;
+  /*background-color: #039487;*/
+    background-image: url('/images/background3.jpeg');
+    background-reapet: reapet;
+    font: 11px "Trebuchet MS", Verdana, Arial, Helvetica,
+    sans-serif;
+    color: #6D929B;    
+    letter-spacing: 2px; 
+    font-size: 14px;
 }
 
 h1 {
@@ -21,7 +23,8 @@ a img {
 }
 
 a {
-  color: #D90000;
+  color: #D8D8D8;/*#D90000;*/
+  font-weight: bold;
 }
 
 .clear {
@@ -36,7 +39,7 @@ a {
   width: auto;
   height: auto;
   margin: 0 auto;
-  background-color: #ACDEDB;
+  background-color: #404040;/*#ACDEDB;*/
   padding: 30px 40px;
   border: solid 1px black;
   margin-top: 20px;
@@ -97,17 +100,17 @@ a {
 
 /* TABLES */
 th {
-	font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica,
+	font: bold 12px "Trebuchet MS", Verdana, Arial, Helvetica,
 	sans-serif;
 	color: #6D929B;
-	border-right: 1px solid #C1DAD7;
-	border-bottom: 1px solid #C1DAD7;
-	border-top: 1px solid #C1DAD7;
+	/*border-right: 1px solid #C1DAD7;*/
+	/*border-bottom: 1px solid #C1DAD7;*/
+	/*border-top: 1px solid #C1DAD7;*/
 	letter-spacing: 2px;
 	text-transform: uppercase;
 	text-align: left;
 	padding: 6px 6px 6px 12px;
-	background: #CAE8EA;
+	background: #202020/*#CAE8EA;*/
 }
 
 th.nobg {
@@ -118,9 +121,9 @@ th.nobg {
 }
 
 td {
-	border-right: 1px solid #C1DAD7;
-	border-bottom: 1px solid #C1DAD7;
-	background: #fff;
+	border-right: 1px solid transparent/*#C1DAD7;*/
+	border-bottom: 1px solid transparent;/*#C1DAD7;*/
+	background: #303030;
 	padding: 6px 6px 6px 12px;
 	color: #6D929B;
 }
@@ -141,16 +144,16 @@ div#user-nav {
 div#general-info {
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
-	padding: 10px;
+	padding: 1px;
 	width: 30%;
 	margin: 8px;
-	background-color: #E8D99E;
+	background-color: #585858;
 }
 
 div#general-info div {
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
-	background-color: #FFF;
+	background-color: #202020;
 	padding: 5px;
 	margin: 3px;
 }
@@ -182,14 +185,15 @@ div.user-accept, div.user-reject {
 	-webkit-border-radius: 6px;
 	padding: 6px;
 	margin: 2px;
+	color: #FFFFFF;
 }
 
 div.user-accept {
-	background-color: #55D8BB;
+	background-color: #009900;
 }
 
 div.user-reject {
-	background-color: #E33F53;
+	background-color: #900000;
 }
 
 div#sections li a {
@@ -199,7 +203,6 @@ div#sections li a {
 
 div#user-info{
 	margin-right: 30%;
-	float: left;
 }
 
 div#decision {
