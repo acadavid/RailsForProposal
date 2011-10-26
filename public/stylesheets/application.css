@@ -33,7 +33,7 @@ a {
 #container {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
-  width: 75%;
+  width: auto;
   height: auto;
   margin: 0 auto;
   background-color: #ACDEDB;
